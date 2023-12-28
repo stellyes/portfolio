@@ -1,6 +1,44 @@
 :root {
     /* Defining font families */
     --CUTIVE-MONO: 'Cutive Mono', monospace;
-    --NANUM-GOTHIC: 'Nanum Gothic', sans-serif;
-    --NEWSREADER: 'Newsreader', serif;
+    --LORA: 'Lora', serif;
+}
+
+html, body, #root {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+html {
+    font-family: var(--LORA);
+    background: #000;
+    color: #FFF;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pftitle {
+    font-family: var(--CUTIVE-MONO);
+    font-size: 78px;
+}
+
+.logo {
+    filter: invert(1);
+    max-height: 2.5rem;
+}
+
+.menu {
+    padding: 1.5rem;
+}
+
+.menu a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 0 1rem;
 }

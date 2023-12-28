@@ -1,54 +1,72 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+const name = "Ryan England"; // For comparison
 
 const Home = () => {
-    const [shuffledText, setShuffledText] = useState("");
     const [displayText, setDisplayText] = useState("");
-    const [iteration, setIteration] = useState(0);
 
-    const shuffleText = (text) => {
-        const alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-        const specialChars = '!@#$%^&*()_-+=[]{}|:;"\'<>,.?/~`';
-        let shuffled = "";
-        for (let i = 0; i < text.length; i++) {
-            if (text[i] === ' ') {
-                shuffled += ' ';
-            } else {
-                if (Math.random() < 0.5) {
-                    shuffled += alphanumeric[Math.floor(Math.random() * alphanumeric.length)];
-                } else {
-                    shuffled += specialChars[Math.floor(Math.random() * specialChars.length)];
+    const shuffleText = () => {
+        const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*_-+=';
+
+        // Scramble letters for 2 seconds
+        const scrambleInterval = setInterval(() => {
+            let input = "";
+            for (let i = 0; i < name.length; i++) {
+                // Skip whitespace
+                if (name[i] === " ") {
+                    input += " ";
+                    continue;
                 }
+
+                input += characters[Math.floor(Math.random() * characters.length)];
             }
-        }
-        return shuffled;
+
+            setDisplayText(input);
+        }, 50);
+
+        // Stop scrambling after 2 seconds
+        setTimeout(() => {
+            clearInterval(scrambleInterval);
+
+            let iteration = 0;
+            const revealInterval = setInterval(() => {
+                let input = "";
+                for (let i = 0; i < name.length; i++) {
+                    // Skip whitespace
+                    if (name[i] === " ") {
+                        input += " ";
+                        continue;
+                    }
+
+                    input += characters[Math.floor(Math.random() * characters.length)];
+                }
+
+                // Every five iterations, display a new letter of actual name
+                input = name.substring(0, Math.floor(iteration/5)) + 
+                        input.substring(Math.floor(iteration/5));
+
+                setDisplayText(input);
+                iteration++;
+            }
+            , 50);
+
+            // Stop scrambling after 2 seconds
+            setTimeout(() => {
+                clearInterval(revealInterval);
+            }, 6000);
+        }, 2000);
     }
 
+    // run shuffleText() on page load
     useEffect(() => {
-        const interval = setInterval(() => {
-            setShuffledText(shuffleText("Ryan England"));
-            setIteration(iteration + 1);
-        }, 200);
-
-        setTimeout(() => {
-            clearInterval(interval);
-            setDisplayText("Ryan England");
-        }, 3000);
-
-        return () => clearInterval(interval);
+        shuffleText();
     }, []);
 
-    useEffect(() => {
-        if (iteration % 5 === 0) {
-            setDisplayText((prevText) => prevText + shuffledText[iteration / 5]);
-        }
-    }, [iteration, shuffledText]);
-
     return (
-        <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+        <Container className="d-flex justify-content-center align-items-center">
             <Row>
                 <Col>
-                    <h1>{displayText}</h1>
+                    <h1 className="pftitle">{displayText}</h1>
                 </Col>
             </Row>
         </Container>
