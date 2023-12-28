@@ -1,0 +1,77 @@
+const BlogPost = require('../models/BlogPost');
+
+const resolvers = {
+    Query: {
+        // Get all BlogPosts
+        getAllBlogPosts: async () => {
+            try {
+                const blogPosts = await BlogPost.find();
+                return blogPosts;
+            } catch (error) {
+                throw new Error('Failed to fetch BlogPosts');
+            }
+        },
+        
+        // Get a BlogPost by ID
+        getBlogPostById: async (parent, { id }) => {
+            try {
+                const blogPost = await BlogPost.findById(id);
+                if (!blogPost) {
+                    throw new Error('BlogPost not found');
+                }
+                return blogPost;
+            } catch (error) {
+                throw new Error('Failed to fetch BlogPost');
+            }
+        },
+    },
+    
+    Mutation: {
+        // Add a new BlogPost
+        addBlogPost: async (parent, { title, body }) => {
+            try {
+                const newBlogPost = new BlogPost({ title, body });
+                const savedBlogPost = await newBlogPost.save();
+                return savedBlogPost;
+            } catch (error) {
+                throw new Error('Failed to add BlogPost');
+            }
+        },
+        
+        // Update a BlogPost by ID
+        updateBlogPost: async (parent, { id, title, content }) => {
+            try {
+                const updatedBlogPost = await BlogPost.findByIdAndUpdate(
+                    id, 
+                    { title, content }, 
+                    { new: true }
+                );
+
+                if (!updatedBlogPost) {
+                    throw new Error('BlogPost not found');
+                }
+
+                return updatedBlogPost;
+            } catch (error) {
+                throw new Error('Failed to update BlogPost');
+            }
+        },
+        
+        // Delete a BlogPost by ID
+        deleteBlogPost: async (parent, { id }) => {
+            try {
+                const deletedBlogPost = await BlogPost.findByIdAndDelete(id);
+
+                if (!deletedBlogPost) {
+                    throw new Error('BlogPost not found');
+                }
+                
+                return deletedBlogPost;
+            } catch (error) {
+                throw new Error('Failed to delete BlogPost');
+            }
+        },
+    },
+};
+
+module.exports = resolvers;

@@ -13,6 +13,10 @@ const blogPostSchema = new Schema({
       required: true,
       trim: true
   },
+  createdAt: {
+      type: Date,
+      default: Date.now
+  },
 });
 
 const BlogPost = mongoose.model('BlogPost', blogPostSchema);
