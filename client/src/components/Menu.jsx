@@ -3,10 +3,6 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import logo from '../../public/home-outline-black.png';
-import Home from '../pages/Home';
-import About from '../pages/About';
-import Portfolio from '../pages/Portfolio';
-import Contact from '../pages/Contact';
 
 const Menu = () => {
     return (
