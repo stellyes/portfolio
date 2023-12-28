@@ -8,9 +8,11 @@ const Menu = () => {
     return (
         <Navbar bg="light" expand="lg" className="menu d-flex">
             <Nav>
-                <Link to="/" className="nav-link">
-                    <Image src={logo} className="logo" alt="Logo" />
-                </Link>
+                <Container className='my-auto'>
+                    <Link to="/" className="nav-link logo-container">
+                        <Image src={logo} className="logo" alt="Logo" />
+                    </Link>
+                </Container>
                 <Link to="/blog" className="nav-link">Blog</Link>
                 <Link to="/portfolio" className="nav-link">Portfolio</Link>
                 <Link to="/about" className="nav-link">About</Link>

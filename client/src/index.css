@@ -25,6 +25,13 @@ html {
 .pftitle {
     font-family: var(--CUTIVE-MONO);
     font-size: 78px;
+    margin: 35% 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
@@ -41,4 +48,16 @@ html {
     text-decoration: none;
     font-size: 1.5rem;
     margin: 0 1rem;
+    margin-bottom: 1rem;
+}
+
+.about {
+    max-width: 50%;
+    text-align: justify;
+    margin: 0 auto;
+}
+
+.profile {
+    max-width: 50%;
+    margin: 0 25%;
 }
