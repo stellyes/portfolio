@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-import logo from '../../public/home-outline-black.png';
+import logo from '../assets/images/home-outline-black.png';
 
 const Menu = () => {
     return (

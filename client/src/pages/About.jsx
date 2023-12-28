@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
+import profileImg from '../assets/images/profile.jpeg'
 
 const About = () => {
     return (
@@ -14,7 +15,7 @@ const About = () => {
                     </p>
                 </Col>
                 <Col xs={12} md={6} className="d-flex justify-content-end">
-                    <Image src="../../public/profile.jpeg" alt="Profile" fluid />
+                    <Image src={profileImg} alt="Profile" fluid />
                 </Col>
             </Row>
         </Container>
