@@ -9,6 +9,10 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 
+import Art from './pages/portfolio/Art';
+import Code from './pages/portfolio/Code';
+import Music from './pages/portfolio/Music';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -30,6 +34,18 @@ const router = createBrowserRouter([
       {
         path: "/portfolio",
         element: <Portfolio />,
+      },
+      {
+        path: "/portfolio/music",
+        element: <Music />,
+      },
+      {
+        path: "/portfolio/art",
+        element: <Art />,
+      },
+      {
+        path: "/portfolio/code",
+        element: <Code />,
       },
       {
         path: "/contact",

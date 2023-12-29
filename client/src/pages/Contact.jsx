@@ -1,18 +1,33 @@
 import React from 'react';
-import { TfiEmail } from "react-icons/tfi";
 import { Container, Row, Col } from 'react-bootstrap';
+
+import { FaGitAlt } from "react-icons/fa6";
+import { TfiEmail } from "react-icons/tfi";
+import { AiOutlineLinkedin } from "react-icons/ai";
 
 const Contact = () => {
     const handleEmailClick = () => {
         window.location.href = 'mailto:me@rengland.org';
     };
+    
+    const handleGithubClick = () => {
+        window.location.href = 'https://github.com/stellyes';
+    };
+
+    const handleLinkedInClick = () => {
+        window.location.href = 'https://www.linkedin.com/in/ryandengland/';
+    };
 
     return (
-        <Container className="d-flex justify-content-center align-items-center vh-100">
-            <Row>
+        <Container className="text-center">
+            <Row className="contact">
                 <Col>
-                    <h1 className="text-center">Contact</h1>
-                    <TfiEmail onClick={handleEmailClick} className="d-block mx-auto" />
+                    <h1 className="contact-header">Get in touch!</h1>
+                    <Container className="contact-options">
+                        <TfiEmail className="email" onClick={handleEmailClick}/>
+                        <FaGitAlt className='github' onClick={handleGithubClick}/>
+                        <AiOutlineLinkedin className='linkedin' onClick={handleLinkedInClick}/>
+                    </Container>
                 </Col>
             </Row>
         </Container>
