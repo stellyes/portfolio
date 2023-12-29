@@ -60,6 +60,7 @@ html {
 .profile {
     max-width: 75%;
     margin: 0 12%;
+    text-align: center;
 }
 
 .contact,
