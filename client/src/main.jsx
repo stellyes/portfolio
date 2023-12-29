@@ -13,6 +13,42 @@ import Art from './pages/portfolio/Art';
 import Code from './pages/portfolio/Code';
 import Music from './pages/portfolio/Music';
 
+var granimInstance = new Granim({
+    element: '#dynamic-background',
+    direction: 'diagonal',
+    isPausedWhenNotInView: true,
+    states : {
+        "default-state": {
+            gradients: [
+                [
+                    { color: '#000', pos: .2 },
+                    { color: '#AAA', pos: .8 },
+                    { color: '#FFF', pos: 1 }
+                ], [
+                    { color: '#FFF', pos: 0 },
+                    { color: '#CCC', pos: .2 },
+                    { color: '#444', pos: .75 }
+                ],
+                [
+                    { color: '#333', pos: .1 },
+                    { color: '#888', pos: .5 },
+                    { color: '#EEE', pos: .9 }
+                ],
+                [
+                    { color: '#222', pos: .3 },
+                    { color: '#777', pos: .6 },
+                    { color: '#DDD', pos: .95 }
+                ],
+                [
+                    { color: '#111', pos: .4 },
+                    { color: '#666', pos: .7 },
+                    { color: '#CCC', pos: .8 }
+                ]
+            ]
+        }
+    }
+});
+
 const router = createBrowserRouter([
   {
     path: '/',
