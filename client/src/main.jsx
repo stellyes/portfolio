@@ -21,28 +21,28 @@ var granimInstance = new Granim({
         "default-state": {
             gradients: [
                 [
-                    { color: '#000', pos: .2 },
-                    { color: '#AAA', pos: .8 },
-                    { color: '#FFF', pos: 1 }
+                  { color: '#000', pos: .2 },
+                  { color: '#666', pos: .8 },
+                  { color: '#FFF', pos: 1 }
                 ], [
-                    { color: '#FFF', pos: 0 },
-                    { color: '#CCC', pos: .2 },
-                    { color: '#444', pos: .75 }
+                  { color: '#FFF', pos: 0 },
+                  { color: '#999', pos: .2 },
+                  { color: '#333', pos: .75 }
                 ],
                 [
-                    { color: '#333', pos: .1 },
-                    { color: '#888', pos: .5 },
-                    { color: '#EEE', pos: .9 }
+                  { color: '#222', pos: .1 },
+                  { color: '#777', pos: .5 },
+                  { color: '#EEE', pos: .9 }
                 ],
                 [
-                    { color: '#222', pos: .3 },
-                    { color: '#777', pos: .6 },
-                    { color: '#DDD', pos: .95 }
+                  { color: '#111', pos: .3 },
+                  { color: '#555', pos: .6 },
+                  { color: '#DDD', pos: .95 }
                 ],
                 [
-                    { color: '#111', pos: .4 },
-                    { color: '#666', pos: .7 },
-                    { color: '#CCC', pos: .8 }
+                  { color: '#000', pos: .4 },
+                  { color: '#444', pos: .7 },
+                  { color: '#999', pos: .8 }
                 ]
             ]
         }

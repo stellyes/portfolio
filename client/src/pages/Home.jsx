@@ -92,7 +92,7 @@ const Home = () => {
                 shuffleText();
                 break;
             case 1:
-                fadeText();
+                fadeText(); // Needs debugging. Doesn't work
                 break;
         }
     }, []);

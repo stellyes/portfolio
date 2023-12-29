@@ -20,10 +20,11 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 #dynamic-background {
-    position: absolute;
+    position: fixed;
     display: block;
     width: 100%;
     height: 100%;
@@ -38,6 +39,7 @@ html {
     font-family: var(--CUTIVE-MONO);
     font-size: 78px;
     margin: 30% 0;
+    background-blend-mode: luminosity;
 }
 
 .logo-container {
@@ -75,18 +77,22 @@ html {
     text-align: center;
 }
 
+.code,
+.art,
+.music,
 .contact,
-.contact-options {
+.contact-options,
+.portfolio-options {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.portfolio-options,
 .contact-options {
     flex-direction: row;
 }
-
 
 .contact-header {
     width: 100%;
@@ -97,4 +103,32 @@ html {
 .email, .github, .linkedin {
     scale: 3;
     margin: 10%;
+}
+
+.code, .music, .art {
+    border: 1px solid #FFF;
+    padding: 0.25rem;
+    margin: 0.5em;
+    background: #000;
+    width: 10rem;
+    aspect-ratio: 1/1;
+    font-size: x-large;
+    transition: letter-spacing 0.5s, filter 0.5s;
+    text-align: center;
+}
+
+.portfolio-options a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.code svg, .music svg, .art svg {
+    margin: 50% 0;
+    scale: 4;
+    aspect-ratio: 1/1;
+}
+
+.code:hover, .music:hover, .art:hover {
+    filter: invert(1);
+    letter-spacing: 0.1em;
 }
