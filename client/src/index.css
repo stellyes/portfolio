@@ -39,9 +39,7 @@ html {
     font-family: var(--CUTIVE-MONO);
     font-size: 78px;
     margin: 30% 0;
-    -webkit-background-clip: text;
-    /* Make the text fill color value transparent so the masked background color comes through */
-    -webkit-text-fill-color: white;
+
 }
 
 .logo-container {
@@ -151,20 +149,16 @@ html {
     background: #000;
     font-family: var(--CUTIVE-MONO);
     letter-spacing: -0.1em;
-    transition: filter;
+    transition: background 0.5s, color 0.5s;
 }
 
 .code-display:hover {
-    filter: invert(1);
+    background-color: #FFF;
+    color: #000;
 }
 
 .code-display img {
     max-width: 100%;
-    transition: filter;
-}
-
-.code-display img:hover {
-    filter: invert(1);
 }
 
 .code-info {
