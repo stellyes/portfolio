@@ -12,6 +12,7 @@ import wb from '../../assets/images/wb.png'
 import ml from '../../assets/images/ml.png'
 import rscssg from '../../assets/images/rscssg.png'
 import saa from '../../assets/images/saa.png'
+import rp from '../../assets/images/rp.png'
 
 const Resume = () => {
     return (
@@ -153,6 +154,27 @@ const Projects = () => {
                     <Container className="project-description">
                         <p className='italic'>
                             A shopping experience like you've never seen it
+                        </p>
+                    </Container>
+                </Container>
+            </Container>
+            <Container className="project" onClick={() => {
+                    if (expandState == 7) {
+                        setExpandState(0);
+                    } else {
+                        setExpandState(7);
+                    }
+                }}>
+                <h2>react-portfolio</h2>
+                <Container className="project-details" style={expandState == 7 ? { height: '100%' } : { height: "0" }}>
+                    <Image className="project-image" src={rp} alt="react-portfolio" fluid />
+                    <Container className="project-links">
+                        <FaGitAlt className='github' onClick={() => handleGithubClick("portfolio")}/>   
+                        <SlGlobe className='website' onClick={() => handleRedirect('https://ryanengland.onrender.com')}/>   
+                    </Container>
+                    <Container className="project-description">
+                        <p>
+                            Look familiar? This is the repository for this website!
                         </p>
                     </Container>
                 </Container>

@@ -224,7 +224,12 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 60%;
     margin-top: 2.5rem;
+}
+
+.project {
+    min-width: 350px;
 }
 
 @media screen and (max-width: 695px) {   
@@ -240,5 +245,13 @@ html {
 
     .portfolio-options {
         scale: 0.65;
+    }
+
+    .contact-header {
+        font-size: 2rem;
+    }
+
+    .project {
+        font-size: smaller;
     }
 }
