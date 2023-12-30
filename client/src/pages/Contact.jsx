@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 
 import { FaGitAlt } from "react-icons/fa6";
 import { TfiEmail } from "react-icons/tfi";
@@ -19,17 +19,15 @@ const Contact = () => {
     };
 
     return (
-        <Container className="text-center">
-            <Row className="contact">
-                <Col>
-                    <h1 className="contact-header">Get in touch!</h1>
-                    <Container className="contact-options">
-                        <TfiEmail className="email" onClick={handleEmailClick}/>
-                        <FaGitAlt className='github' onClick={handleGithubClick}/>
-                        <AiOutlineLinkedin className='linkedin' onClick={handleLinkedInClick}/>
-                    </Container>
-                </Col>
-            </Row>
+        <Container className="contact">
+            <Container>
+                <h1 className="contact-header">Get in touch!</h1>
+                <Container className="contact-options">
+                    <TfiEmail className="email" onClick={handleEmailClick}/>
+                    <FaGitAlt className='github' onClick={handleGithubClick}/>
+                    <AiOutlineLinkedin className='linkedin' onClick={handleLinkedInClick}/>
+                </Container>
+            </Container>
         </Container>
     );
 };

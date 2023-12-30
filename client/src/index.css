@@ -108,7 +108,7 @@ html {
     margin-bottom: 1rem;
 }
 
-.email, .github, .linkedin {
+.email, .github, .linkedin, .youtube, .website {
     scale: 3;
     margin: 10%;
 }
@@ -161,8 +161,21 @@ html {
     border: 1px solid #000;
 }
 
+.project-details {
+    overflow: hidden;
+}
+
+.project-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: -5%;
+}
+
 .project-image {
-    width: 85%;
+    width: 75%;
     aspect-ratio: 1/1;
 }
 
@@ -178,6 +191,7 @@ html {
     text-align: justify;
     width: 80%;
     padding: 0 2em;
+    margin: 1em 5%;
 }
 
 .resume-container {
@@ -210,6 +224,7 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 2.5rem;
 }
 
 @media screen and (max-width: 695px) {   
