@@ -94,6 +94,10 @@ html {
     flex-direction: row;
 }
 
+.portfolio-options {
+    max-width: 100%;
+}
+
 .contact-header {
     width: 100%;
     font-size: 4rem;
@@ -201,4 +205,27 @@ html {
 
 .resume-button:hover {
     filter: invert(1);
+}
+
+@media screen and (max-width: 695px) {
+    .pftitle {
+        font-size: 48px;
+        margin: 20% 0;
+    }
+    
+    .portfolio-options {
+        scale: 0.75;
+    }
+
+    .code-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .code-display  {
+        max-width: 75%;
+        flex-direction: column;
+    }
 }

@@ -5,7 +5,7 @@ import jate from '../../assets/images/jate.png';
 
 const Code = () => {
     return (
-        <Container>
+        <Container className='code-container'>
             <Container className="resume-container">
                 <Container className="resume-button">View full resume</Container>
             </Container>
