@@ -8,11 +8,6 @@
     font-style: italic;
 }
 
-.card-img-top {
-    aspect-ratio: 1/1;
-    max-width: 200px;
-}
-
 html, body, #root {
     min-width: 100%;
     min-height: 100%;
@@ -25,10 +20,6 @@ html {
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     z-index: 1;
 }
 
@@ -86,23 +77,25 @@ html {
     text-align: center;
 }
 
+#root,
 .code,
 .art,
 .music,
 .contact,
-.contact-options,
-.portfolio-options,
-.card-container {
+.card-container,
+.project-details {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.card-container,
 .portfolio-options,
 .contact-options {
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .portfolio-options {
@@ -148,47 +141,43 @@ html {
     letter-spacing: 0.1em;
 }
 
-.code-display {
+
+.project {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 25%;
-    height: 25rem;
-    border: 1px solid #FFF;
-    padding: 1rem;
-    margin: 0.5em;
+    width: 45%;
+    padding: 1em 0.5em;
     background: #000;
+    border: 1px solid #FFF;
     font-family: var(--CUTIVE-MONO);
-    letter-spacing: -0.1em;
     transition: background 0.5s, color 0.5s, border 0.5s;
 }
 
-.code-display:hover {
+.project:hover {
     background-color: #FFF;
     color: #000;
     border: 1px solid #000;
 }
 
-.code-display img {
-    max-width: 100%;
+.project-image {
+    width: 85%;
+    aspect-ratio: 1/1;
 }
 
-.code-info {
+.project h2 {
     text-align: center;
 }
 
-.code-info div {
-    margin: 1rem 0;
-    font-size: larger;
-    font-weight: bold;
+.project div {
+    width: 100%;
 }
 
-.code-info p {
-    margin: 0.5rem 0;
-    font-size: smaller;
+.project-description p {
     text-align: justify;
-    font-style: italic;
+    width: 80%;
+    padding: 0 2em;
 }
 
 .resume-container {
@@ -216,25 +205,25 @@ html {
     filter: invert(1);
 }
 
-@media screen and (max-width: 695px) {    
+.code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 695px) {   
     .menu {
         scale: 0.8;
         margin-bottom: 0;
     }
 
+    .pftitle {
+        font-size: 3rem;
+        margin: 10% 0;
+    }
+
     .portfolio-options {
         scale: 0.65;
-    }
-
-    .code-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .code-display  {
-        max-width: 75%;
-        flex-direction: column;
     }
 }

@@ -1,37 +1,46 @@
 import React from 'react';
-import { Container, Card } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
 
 import jate from '../../assets/images/jate.png';
 import ms from '../../assets/images/ms.png';
 
-const Code = () => {
+const Resume = () => {
     return (
-        <Container className='code-container'>
-            <Container className="resume-container">
-                <Container className="resume-button">View full resume</Container>
-            </Container>
-            <Container className='card-container'>
-                <Card className="code-display">
-                    <Card.Img variant="top" src={jate} />
-                    <Card.Body className="code-info">
-                        <Card.Title>J.A.T.E Quick Journal</Card.Title>
-                        <Card.Text>
+        <Container className='resume-container'>
+            <Container className="resume-button">View full resume</Container>
+        </Container>
+    );
+}
+
+const Projects = ({ projects }) => {
+    return (
+        <Container className="code-container">
+            <Container className="project">
+                <h2>J.A.T.E Quick Journal</h2>
+                <Container className="project-details">
+                    <Image src={jate} className="project-image" />
+                    <Container className="project-description">
+                        <p>
                             "Just Another Text Editor" - An Express.js progressive web application designed to allow for users to save notes for on and offline access.
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-                <Card className="code-display" >
-                    <Card.Img variant="top" src={ms} />
-                    <Card.Body className="code-info">
-                        <Card.Title>MarketServer</Card.Title>
-                        <Card.Text>
-                            "A database management system for business" - MarketServer is a Node / Express.js application designed to handle and manage the backend of an example e-commerce website.
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
+                        </p>
+                    </Container>
+                    <Container className="project-links">
+                        <a href=""></a>                
+                    </Container>
+                </Container>
             </Container>
         </Container>
-        
+    );
+}
+
+
+const Code = () => {
+    return (
+        <Container>
+            <Resume />
+            <Projects />
+        </Container>
     );
 };
 

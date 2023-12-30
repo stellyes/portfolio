@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 const name = "Ryan England"; // For comparison
 
 const Home = () => {
@@ -97,12 +97,8 @@ const Home = () => {
     }, []);
 
     return (
-        <Container className="d-flex justify-content-center align-items-center">
-            <Row>
-                <Col>
-                    <h1 className="pftitle">{displayText}</h1>
-                </Col>
-            </Row>
+        <Container>
+            <h1 className="pftitle">{displayText}</h1>
         </Container>
     );
 };
