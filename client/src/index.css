@@ -4,6 +4,15 @@
     --LORA: 'Lora', serif;
 }
 
+.italic {
+    font-style: italic;
+}
+
+.card-img-top {
+    aspect-ratio: 1/1;
+    max-width: 200px;
+}
+
 html, body, #root {
     min-width: 100%;
     min-height: 100%;
@@ -39,7 +48,6 @@ html {
     font-family: var(--CUTIVE-MONO);
     font-size: 78px;
     margin: 30% 0;
-
 }
 
 .logo-container {
@@ -66,14 +74,15 @@ html {
 }
 
 .about {
-    max-width: 75%;
+    max-width: 65%;
     text-align: justify;
     margin: 0 auto;
 }
 
 .profile {
-    max-width: 75%;
-    margin: 0 12%;
+    max-width: 60%;
+    max-height: 15%;
+    margin: 0 20%;
     text-align: center;
 }
 
@@ -82,13 +91,15 @@ html {
 .music,
 .contact,
 .contact-options,
-.portfolio-options {
+.portfolio-options,
+.card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.card-container,
 .portfolio-options,
 .contact-options {
     flex-direction: row;
@@ -143,18 +154,20 @@ html {
     align-items: center;
     justify-content: center;
     max-width: 25%;
+    height: 25rem;
     border: 1px solid #FFF;
     padding: 1rem;
     margin: 0.5em;
     background: #000;
     font-family: var(--CUTIVE-MONO);
     letter-spacing: -0.1em;
-    transition: background 0.5s, color 0.5s;
+    transition: background 0.5s, color 0.5s, border 0.5s;
 }
 
 .code-display:hover {
     background-color: #FFF;
     color: #000;
+    border: 1px solid #000;
 }
 
 .code-display img {
@@ -204,6 +217,11 @@ html {
 }
 
 @media screen and (max-width: 695px) {    
+    .menu {
+        scale: 0.8;
+        margin-bottom: 0;
+    }
+
     .portfolio-options {
         scale: 0.65;
     }

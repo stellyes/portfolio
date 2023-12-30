@@ -57,28 +57,28 @@ const Home = () => {
         }, 2000);
     }
 
-    const fadeText = () => {
-        const titleElement = document.querySelector('.pftitle');    // Find title element
-        let i = 0;                                                  // Set initial opacity to 0
-        setDisplayText(name);                                       // Set display text to name
+    // const fadeText = () => {
+    //     const titleElement = document.querySelector('.pftitle');    // Find title element
+    //     let i = 0;                                                  // Set initial opacity to 0
+    //     setDisplayText(name);                                       // Set display text to name
 
-        const gradientDirection = Math.floor(Math.random() * 360);  // Random gradient direction
+    //     const gradientDirection = Math.floor(Math.random() * 360);  // Random gradient direction
         
-        titleElement.setAttribute
+    //     titleElement.setAttribute
 
-        // Fade in title
-        const fadeInterval = setInterval(() => {
-            let gradient = `linear-gradient(to right, rgba(255,255,255,1) ${ i > 100 ? i-100 : 0}%, rgba(0,0,0,1) ${i > 100 ? 100 : i}%)`
-            titleElement.style.color = gradient;
-            i++;
-        }, 50);
+    //     // Fade in title
+    //     const fadeInterval = setInterval(() => {
+    //         let gradient = `linear-gradient(to right, rgba(255,255,255,1) ${ i > 100 ? i-100 : 0}%, rgba(0,0,0,1) ${i > 100 ? 100 : i}%)`
+    //         titleElement.style.color = gradient;
+    //         i++;
+    //     }, 50);
 
-        // Clear timeout after i=100% opacity for both elements, set color to white
-        setTimeout(() => {
-            clearInterval(fadeInterval);
-            titleElement.style.color = "#FFF";
-        }, 10050);
-    }
+    //     // Clear timeout after i=100% opacity for both elements, set color to white
+    //     setTimeout(() => {
+    //         clearInterval(fadeInterval);
+    //         titleElement.style.color = "#FFF";
+    //     }, 10050);
+    // }
 
 
 
