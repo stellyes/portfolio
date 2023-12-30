@@ -63,38 +63,37 @@ const Home = () => {
         setDisplayText(name);                                       // Set display text to name
 
         const gradientDirection = Math.floor(Math.random() * 360);  // Random gradient direction
+        
+        titleElement.setAttribute
 
         // Fade in title
         const fadeInterval = setInterval(() => {
-            let gradient = `linear-gradient(
-                ${gradientDirection}deg, 
-                rgba(255,255,255,1) ${ i > 100 ? i-100 : 0}%, 
-                rgba(0,0,0,1) ${i > 100 ? 100 : i}%
-            )`
-
+            let gradient = `linear-gradient(to right, rgba(255,255,255,1) ${ i > 100 ? i-100 : 0}%, rgba(0,0,0,1) ${i > 100 ? 100 : i}%)`
             titleElement.style.color = gradient;
             i++;
         }, 50);
 
         // Clear timeout after i=100% opacity for both elements, set color to white
         setTimeout(() => {
-            clearInterval(scrambleInterval);
+            clearInterval(fadeInterval);
             titleElement.style.color = "#FFF";
-        }, 100000);
+        }, 10050);
     }
+
+
 
     // run shuffleText() on page load
     useEffect(() => {
-        const rand = Math.floor(Math.random() * 2);
+        // const rand = Math.floor(Math.random() * 2);
 
-        switch (rand) {
-            case 0:
+        // switch (rand) {
+        //     case 0:
                 shuffleText();
-                break;
-            case 1:
-                fadeText(); // Needs debugging. Doesn't work
-                break;
-        }
+                // break;
+        //     case 1:
+        //         fadeText(); // Needs debugging. Doesn't work
+        //         break;
+        // }
     }, []);
 
     return (

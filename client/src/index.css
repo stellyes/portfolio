@@ -39,7 +39,9 @@ html {
     font-family: var(--CUTIVE-MONO);
     font-size: 78px;
     margin: 30% 0;
-    background-blend-mode: luminosity;
+    -webkit-background-clip: text;
+    /* Make the text fill color value transparent so the masked background color comes through */
+    -webkit-text-fill-color: white;
 }
 
 .logo-container {
@@ -207,14 +209,9 @@ html {
     filter: invert(1);
 }
 
-@media screen and (max-width: 695px) {
-    .pftitle {
-        font-size: 48px;
-        margin: 20% 0;
-    }
-    
+@media screen and (max-width: 695px) {    
     .portfolio-options {
-        scale: 0.75;
+        scale: 0.65;
     }
 
     .code-container {
