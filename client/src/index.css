@@ -232,6 +232,27 @@ html {
     min-width: 350px;
 }
 
+.gallery {
+    column-count: 3;
+    column-width: 33%;
+    padding: 0 12px;
+}
+
+.gallery-item {
+    transition: all 350ms ease;
+    margin-bottom: 12px;
+}
+
+.gallery-item:hover {
+    filter: opacity(0.5);
+}
+
+@media screen and (max-width: 1007px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
 @media screen and (max-width: 695px) {   
     .menu {
         scale: 0.8;
@@ -253,5 +274,9 @@ html {
 
     .project {
         font-size: smaller;
+    }
+
+    .gallery {
+        column-count: 1;
     }
 }
