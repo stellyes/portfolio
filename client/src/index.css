@@ -247,6 +247,35 @@ html {
     filter: opacity(0.5);
 }
 
+.model {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    overflow: hidden;
+    z-index: 2;
+    transition: visibility 0s, opacity 0.5s, transform 0.5s;
+}
+
+.viewport {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.model img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
 @media screen and (max-width: 1007px) {
     .gallery {
         column-count: 2;

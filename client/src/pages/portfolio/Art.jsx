@@ -4,7 +4,7 @@ import Image from 'react-bootstrap/Image';
 
 import cyguttrbmp from '../../assets/images/cygutt/cyguttrbmp.jpg';
 import nwis from '../../assets/images/nwis/nwis.jpg';
-import era from '../../assets/images/print/era.jpg';
+// import era from '../../assets/images/print/era.jpg';
 import ii from '../../assets/images/print/ii.jpg';
 import ruin from '../../assets/images/print/ruin.jpg';
 import r4ts from '../../assets/images/r4ts/r4ts.jpg';
@@ -24,11 +24,11 @@ const Art = () => {
             title: 'Not what it seems.',
             src: nwis,
         },
-        {
-            id: 3,
-            title: 'Era',
-            src: era,
-        },
+        // {
+        //     id: 3,
+        //     title: 'Era',
+        //     src: era,
+        // },
         {
             id: 4,
             title: 'Imagine',
@@ -66,7 +66,7 @@ const Art = () => {
 
     return (
         <Container>
-            <Container className={model ? "model open" : "model"}>
+            <Container className={model ? "model viewport" : "model"}>
                 <Image src={imgSrc} alt="" />
                 <Container className="close" onClick={() => setModel(false)}>
                     <i className="fas fa-times"></i>
