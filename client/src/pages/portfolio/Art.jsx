@@ -4,9 +4,7 @@ import Image from 'react-bootstrap/Image';
 
 import cyguttrbmp from '../../assets/images/cygutt/cyguttrbmp.jpg';
 import nwis from '../../assets/images/nwis/nwis.jpg';
-// import era from '../../assets/images/print/era.jpg';
 import ii from '../../assets/images/print/ii.jpg';
-import ruin from '../../assets/images/print/ruin.jpg';
 import r4ts from '../../assets/images/r4ts/r4ts.jpg';
 import ttgbw from '../../assets/images/ttg/ttgbw.jpg';
 import wyw from '../../assets/images/wyw/wyw.png';
@@ -34,11 +32,11 @@ const Art = () => {
             title: 'Imagine',
             src: ii,
         },
-        {
-            id: 5,
-            title: 'RUIN ME',
-            src: ruin,
-        },
+        // {
+        //     id: 5,
+        //     title: 'RUIN ME',
+        //     src: ruin,
+        // },
         {
             id: 6,
             title: 'Reach for the Stars',
