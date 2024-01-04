@@ -17,7 +17,6 @@ import ott from '../../assets/images/print/123.jpg';
 const Art = () => {
 
     const [art, setArt] = useState([]);
-    const [viewport, setViewport] = useState(false);
     const [imgSrc, setImgSrc] = useState('');
     const [imgAlt, setImgAlt] = useState('');
 
