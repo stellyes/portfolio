@@ -5,6 +5,7 @@ import Image from 'react-bootstrap/Image';
 import { FaGitAlt, FaYoutube } from "react-icons/fa6";
 import { SlGlobe } from "react-icons/sl";
 
+import resume from '../../assets/documents/resume.pdf';
 
 import jate from '../../assets/images/jate.png';
 import ms from '../../assets/images/ms.png';
@@ -17,7 +18,14 @@ import rp from '../../assets/images/rp.png'
 const Resume = () => {
     return (
         <Container className='resume-container'>
-            <Container className="resume-button">View full resume</Container>
+            <a 
+                className='resume-link'
+                href={resume}
+                download="ryanengland_resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer">
+                <Container className="resume-button">View full resume</Container>
+            </a>
         </Container>
     );
 }

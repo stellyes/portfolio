@@ -202,6 +202,10 @@ html {
     margin: 1rem 0;
 }
 
+.resume-link {
+    text-decoration: none;
+}
+
 .resume-button {
     display: flex;
     flex-direction: column;
@@ -347,6 +351,7 @@ html {
 }
 
 
+
 @media screen and (max-width: 1007px) {
     .gallery {
         column-count: 2;
@@ -384,5 +389,9 @@ html {
 
     .gallery {
         column-count: 1;
+    }
+
+    .song-title {
+        font-size: 10px;
     }
 }
