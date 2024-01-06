@@ -305,12 +305,12 @@ html {
     width: 100%;
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s ease-out
+    transition: max-height 0.2s ease;
 }
 
 .display-info {
     max-height: 50em;
-    transition: max-height 0.5s ease-in;
+    transition: max-height 0.2s ease;
 } 
 
 .info-select svg {
@@ -325,28 +325,7 @@ html {
     width: 70%;
     aspect-ratio: 7/1;
     border: 1px solid #FFF;
-}
-
-/* 
-    filter needs transform: translateX(${val}%) applied based on 
-    ( song position / song duration) * 100 with 2 precision points
-*/
-
-.filter {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.filter:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  filter: invert(1);
+    position: relative;
 }
 
 .song-title,
@@ -360,6 +339,11 @@ html {
 .song-artist {
     font-size: smaller;
     font-style: italic;
+}
+
+.song-description {
+    margin: 1em;
+    font-family: var(--CUTIVE-MONO);
 }
 
 

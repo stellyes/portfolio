@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, createRef } from 'react';
 import Container from 'react-bootstrap/Container';
 
 import { TfiMenu } from "react-icons/tfi";
@@ -13,50 +13,76 @@ const Music = () => {
 
     const [song, setSong] = useState(0); // song index
     const [info, setInfo] = useState(0); // song info [dropdown
-    const [nowPlaying, setNowPlaying] = useState(false); 
+    const [nowPlaying, setNowPlaying] = useState(false); // is song playing
 
     const songs = [ 
         {
             id: 1,
             title: 'joy',
             artist: 'carol hudson ward',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            description: "I wrote this sometime in mid- to late-October of 2022. Something about the way that time of year always manages to pull something out of people. There's this way that people look at you when they're excited about something and they can't wait to tell you. Permanent joy. I really needed joy at the time.",
             src: joy,
         },
         {
             id: 2,
             title: 'mantra',
             artist: 'carol hudson ward',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            description: "November 25th, 2022. Can't say I remember much about this day. I love a good mantra.'carol hudson ward' is a pseudonym I use to release these improvised pieces. They feel very fleeting, and I don't necessarily want my name attached to them.Yet, here they are!",
             src: mantra,
         },
         {
             id: 3,
             title: 'sweet nothings',
             artist: 'carol hudson ward',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            description: 'August 10th, 2018. My sweet nothings. Rest in peace, Richard.',
             src: sweetnothings,
         },
     ];
 
+    // create a separate audioRef for each song
+    const audioRefs = useRef(songs.map(() => createRef())); 
+
     const playSong = (id) => {
-        setSong(id);
-        console.log(`Playing song ${id}`);
-        setNowPlaying(true);
+        // if user clicks the same song that is already playing, pause it
+        if (nowPlaying && id - 1 === song) {
+            pauseSong();
+        } else {
+            // stop current song entirely
+            setNowPlaying(false);
+            audioRefs.current[song].current.pause();
+            audioRefs.current[song].current.currentTime = 0;
+
+            setSong(id - 1);
+            audioRefs.current[id - 1].current.play();
+            console.log(`Playing song ${id}`);
+            setNowPlaying(true);
+        }
     };
 
+
     const pauseSong = () => {
-        console.log(`Pausing song ${song}`);
+        console.log(`Pausing song ${song + 1}`);
         setNowPlaying(false);
-        setSong(0);
+        setSong(prevSong => {
+            audioRefs.current[prevSong].current.pause(); // Pause the current playing song
+            return 0; // Set song to 0
+        });
     };
+
+    useEffect(() => {
+        if (nowPlaying) {
+            audioRefs.current[song].current.play();
+        } else {
+            audioRefs.current[song].current.pause();
+        }
+    }, [nowPlaying, song, audioRefs]);
 
     return (
         <Container className="song-list">
-            {songs.map((song_object) => {
+            {songs.map((song_object, index) => {
                 return (
-                    <Container className="song-list-container">
-                        <Container className="song-list-item" key={song_object.id}>
+                    <Container className="song-list-container" key={index} >
+                        <Container className="song-list-item" >
                             <Container 
                                 className={`song-info-dropdown ${info === song_object.id ? 'info-select' : ''}`}
                                 onClick={() => {
@@ -71,12 +97,12 @@ const Music = () => {
                             </Container>
                             <Container 
                                 className="song-control-button" 
-                                onClick={() => (nowPlaying && song_object.id === song) ? pauseSong() : playSong(song_object.id)}
+                                onClick={() => (nowPlaying && song_object.id - 1 === song) ? pauseSong() : playSong(song_object.id)}
                             >
-                                {nowPlaying && song_object.id === song ? <GrPause /> : <GrPlay />}
+                                {nowPlaying && song_object.id - 1 === song ? <GrPause /> : <GrPlay />}
                             </Container>
                             <Container className="song-playback">
-                                <div className="filterr"></div>
+                                <audio src={song_object.src} ref={audioRefs.current[index]} />
                                 <h3 className='song-title'>{song_object.title}</h3>
                                 <p className='song-artist'>{song_object.artist}</p>
                             </Container>
@@ -85,7 +111,7 @@ const Music = () => {
                             </Container>
                         </Container>
                         <Container className={`song-info ${info === song_object.id ? 'display-info' : ''}`}>
-                            <p>{song_object.description}</p>    
+                            <p className="song-description">{song_object.description}</p>    
                         </Container>
                     </Container>
                 );
