@@ -67,9 +67,17 @@ html {
 
 .fpdescription {
     max-height: 0;
-    width: 100%;
+    width: 80%;
+    margin: 1%;
     overflow: hidden;
+    text-align: justify;
     transition: max-height 0.2s ease;
+}
+
+.fpdescription p {
+    font-family: var(--LORA);
+    font-style: normal;
+    font-size: 16px;
 }
 
 .show-fpdescription {
@@ -111,7 +119,7 @@ html {
     margin: 0;
 }
 
-#student p, #human p, #plant p {
+.drop-title {
     font-style: italic;
     font-size: 18px;
 }
@@ -468,7 +476,11 @@ html {
 
     .pfsubtitle {
         font-size: 1.5rem;
-        margin: -5% 0 -3% 0;
+        margin: 1em 0;
+    }
+
+    .pfdescription {
+        margin: 0;
     }
 
     .portfolio-options {

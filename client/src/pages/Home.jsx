@@ -123,15 +123,18 @@ const Home = () => {
                             }
                         }}
                     >
-                        <p>🧑‍🎓 "Former Student"</p>
+                        <p className='drop-title'>🧑‍🎓 "Former Student"</p>
                         <RiArrowDropDownLine className={`home-drop ${info == 1 ? 'home-info-select': ''}`}/>
                     </Container>
                     <div className={`fpdescription ${info == 1 ? 'show-fpdescription': ''}`}>
                         <p>
-                            Something not a lot of people know about me is that I'm quite passionate about Agriculture!   
+                            I spent three years at CSU Channel Islands pursuing a Bachelor's in Computer Science, but had to sadly stop attending before completing my degree due to financial difficulties brought upon by COVID-19.
                         </p>
                         <p>
-                            Having the privilege to grow up on a farm taught me the importance of nutrition and sustainability. As I grew into my farm boots, I got to thinking about how I could include the community in these benefits as well, leading me to found S.H.I.F.T. Foods at the age of 15.
+                            That didn't stop me from finishing what I started. After spending a year interning as a Software Engineer, I wanted to round out my skillset. My university education was one of the best I could have asked for, but my time interning really showed me that I didn't know how to apply the things I was learning in relevant ways. "Being a part of a team working on complex problems while trying to factor in scalability in a cloud environment," was not only a mouthful to explain to my friends and family, but was a lot to take on after only programming in a classroom setting. 
+                        </p>
+                        <p>
+                            After saving up a bit, I eventually pursued a Full Stack Developer (MERN) Certification through UC Berkeley Extension. 
                         </p>
                     </div>
                 </Container>
@@ -146,7 +149,7 @@ const Home = () => {
                             }
                         }}
                     >
-                        <p>🗣️ "Current Human"</p>
+                        <p className='drop-title'>🗣️ "Current Human"</p>
                         <RiArrowDropDownLine className={`home-drop ${info == 2 ? 'home-info-select': ''}`}/>
                     </Container>
                     <div className={`fpdescription ${info == 2 ? 'show-fpdescription': ''}`}>
@@ -169,7 +172,7 @@ const Home = () => {
                             }
                         }}
                     > 
-                        <p>🌿 "Future Plant"</p>
+                        <p className='drop-title'>🌿 "Future Plant"</p>
                         <RiArrowDropDownLine 
                             className={`home-drop ${info == 3 ? 'home-info-select': ''}`} 
                         />
