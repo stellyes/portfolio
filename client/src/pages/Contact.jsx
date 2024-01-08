@@ -27,6 +27,14 @@ const Contact = () => {
                     <FaGitAlt className='github' onClick={handleGithubClick}/>
                     <AiOutlineLinkedin className='linkedin' onClick={handleLinkedInClick}/>
                 </Container>
+                <Container className="contact-text">
+                    <p>
+                        Don't be afraid to reach out! I'm new to the bay area and I'm looking build a network of friends and colleagues alike! 
+                    </p>
+                    <p>
+                        Let's chat!
+                    </p>
+                </Container>
             </Container>
         </Container>
     );

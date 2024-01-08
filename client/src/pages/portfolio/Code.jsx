@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 
@@ -7,13 +7,123 @@ import { SlGlobe } from "react-icons/sl";
 
 import resume from '../../assets/documents/resume.pdf';
 
-import jate from '../../assets/images/jate.png';
-import ms from '../../assets/images/ms.png';
-import wb from '../../assets/images/wb.png'
-import ml from '../../assets/images/ml.png'
-import rscssg from '../../assets/images/rscssg.png'
-import saa from '../../assets/images/saa.png'
-import rp from '../../assets/images/rp.png'
+import jate from '../../assets/images/projects/jate.png';
+import ms from '../../assets/images/projects/ms.png';
+import wb from '../../assets/images/projects/wb.png'
+import ml from '../../assets/images/projects/ml.png'
+import rscssg from '../../assets/images/projects/rscssg.png'
+import saa from '../../assets/images/projects/saa.png'
+import rp from '../../assets/images/projects/rp.png'
+import ttcli from '../../assets/images/projects/ttcli.png'
+import ca from '../../assets/images/projects/ca.png'
+import rr from '../../assets/images/projects/rr.png'
+import svg from '../../assets/images/projects/svg.png'
+import wh from '../../assets/images/projects/wh.png'
+
+const projectData =  [
+    {
+        id: 1,
+        title: 'J.A.T.E Quick Journal',
+        src: jate,
+        github: 'JATE-QuickJournal',
+        website: 'https://jate-tydj.onrender.com/',
+        description: 'Just Another Text Editor - An Express.js progressive web application designed to allow for users to save notes for on and offline access.',
+    },
+    {
+        id: 2,
+        title: 'MarketServer',
+        src: ms,
+        github: 'MarketServer',
+        youtube: 'https://www.youtube.com/watch?v=BhcnfLFVnj8',
+        description: 'A database management system optimized for business - MarketServer is a Node/Express.js application designed to handle and manage the backend of an example e-commerce website.',
+    },
+    {
+        id: 3,
+        title: 'Wealth-Builder',
+        src: wb,
+        github: 'Wealth-Builder',
+        website: 'https://wealth-builder-d2d82a6766d2.herokuapp.com/',
+        description: 'A full-stack web application designed to help you save money! - Wealth Builder creates a safe online accounting form to keep track of a user\'s money coming in and money going out during the course of a month.',
+    },
+    {
+        id: 4,
+        title: 'ModLisp',
+        src: ml,
+        github: 'ModLisp',
+        description: 'A modfied version of the Lisp programming language with Bison/Flex compiler. - An in-depth look at compiler principles through the construction of this Lisp-hybrid!',
+    },
+    {
+        id: 5,
+        title: 'reset-css-generator',
+        src: rscssg,
+        github: 'reset-css-generator',
+        description: 'A python script to automatically generate the most concise reset.css necessary for your webpage. Prior renderings of your reset.css file can be referenced in the output folder with the date and time the file was generated.',
+    },
+    {
+        id: 6,
+        title: 'shopping-addicts-anonymous',
+        src: saa,
+        github: 'shopping-addicts-anonymous',
+        description: 'A shopping experience like you\'ve never seen it',
+    },
+    {
+        id: 7,
+        title: 'react-portfolio',
+        src: rp,
+        github: 'portfolio',
+        website: 'https://ryanengland.onrender.com',
+        description: 'Look familiar? This is the repository for this website!',
+    },
+    {
+        id: 8,
+        title: 'TeamTrackCLI',
+        src: ttcli,
+        github: 'TeamTrackCLI',
+        youtube: 'https://youtu.be/9j2LFPISIG0',
+        description: 'TeamTrack is a Node.js application designed to help manage and display the different tables of a company\'s employee database.'
+    },
+    {
+        id: 9,
+        title: 'Content-AId',
+        src: ca,
+        github: 'Content-AId',
+        website: 'https://stellyes.github.io/content-AId/',
+        description: 'In a world increasingly inundated with ChatGPT and other AI chatbots, it is becoming harder and harder to identify human vs AI-generated content. That\'s why we created this web app: to help people discern computer-generated content from human-written. The core functionality of this app is deprecated, and the API used is no longer available. The github deployment serves as a proof of concept leftover from the time of development.'
+    },
+    {
+        id: 10,
+        title: 'rectify-readme',
+        src: rr,
+        github: 'rectify-readme',
+        description: "\"Rectify README\" is a simple Node.js application that will automatically generate and format a README file given the provided user input from the application."
+    },
+    {
+        id: 11,
+        title: 'SVGenerator',
+        src: svg,
+        github: 'svgenerator',
+        youtube: 'https://youtu.be/a8OK5oGvVSc',
+        description: 'SVGenerator is a Node.js application that takes in an acronym of three characters, text color, shape, and shape color to generate a simple SVG logo.'
+    },
+    {
+        id: 12,
+        title: 'weather-hub',
+        src: wh,
+        github: 'weather-hub',
+        website: 'https://stellyes.github.io/weather-hub/',
+        description: 'WeatherHub provides current weather conditions for any valid city provided by the OpenWeather API. Once a city is located, the current conditions and five day forecast average are presented to the user.'
+    }
+];
+
+// Function to shuffle an array using the Fisher-Yates algorithm
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+shuffleArray(projectData);
 
 const Resume = () => {
     return (
@@ -34,7 +144,7 @@ const Projects = () => {
     const [expandState, setExpandState] = useState(0);
 
     const handleGithubClick = (project) => {
-        window.location.href = `https://github.com/stellyes/${project}}`;
+        window.location.href = `https://github.com/stellyes/${project}`;
     };
 
     const handleRedirect = (url) => {
@@ -43,150 +153,31 @@ const Projects = () => {
 
     return (
         <Container className="code-container">
-            <Container className="project" onClick={() => {
-                    if (expandState == 1) {
-                        setExpandState(0);
-                    } else {
-                        setExpandState(1);
-                    }
-                }}>
-                <h2>J.A.T.E Quick Journal</h2>
-                <Container className="project-details" style={expandState == 1 ? { height: '100%' } : { height: "0" }}>
-                    <Image className="project-image" src={jate} alt="J.A.T.E Quick Journal" fluid />
-                    <Container className="project-links">
-                        <FaGitAlt className='github' onClick={() => handleGithubClick("JATE-QuickJournal")}/>      
-                        <SlGlobe className='website' onClick={() => handleRedirect("https://jate-tydj.onrender.com/")}/>        
-                    </Container>
-                    <Container className="project-description">
-                        <p>
-                            "Just Another Text Editor" - An Express.js progressive web application designed to allow for users to save notes for on and offline access.
-                        </p>
-                    </Container>
-                </Container>
-            </Container>
-            <Container className="project" onClick={() => {
-                    if (expandState == 2) {
-                        setExpandState(0);
-                    } else {
-                        setExpandState(2);
-                    }
-                }}>
-                <h2>MarketServer</h2>
-                <Container className="project-details" style={expandState == 2 ? { height: '100%' } : { height: "0" }}>
-                    <Image className="project-image" src={ms} alt="MarketServer" fluid />
-                    <Container className="project-links">
-                        <FaGitAlt className='github' onClick={() => handleGithubClick("MarketServer")}/>      
-                        <FaYoutube className='youtube' onClick={() => handleRedirect('https://www.youtube.com/watch?v=BhcnfLFVnj8')}/>        
-                    </Container>
-                    <Container className="project-description">
-                        <p>
-                            "A database management system optimized for business" - MarketServer is a Node/Express.js application designed to handle and manage the backend of an example e-commerce website.
-                        </p>
+            {projectData.map((project, index) => {
+                return(
+                    <Container className="project" key={index} onClick={() => {
+                        if (expandState == project.id) {
+                            setExpandState(0);
+                        } else {
+                            setExpandState(project.id);
+                        }
+                    }}>
+                    <h2>{project.title}</h2>
+                    <Container className="project-details" style={expandState == project.id ? { height: '100%' } : { height: "0" }}>
+                        <Image className="project-image" src={project.src} alt={project.title} fluid />
+                        <Container className="project-links">
+                            {project.github && <FaGitAlt className='github' onClick={() => handleGithubClick(project.github)}/>}
+                            {project.website && <SlGlobe className='website' onClick={() => handleRedirect(project.website)}/>}
+                            {project.youtube && <FaYoutube className='youtube' onClick={() => handleRedirect(project.youtube)}/>}
+                        </Container>
+                        <Container className="project-description">
+                            <p>
+                                {project.description}
+                            </p>
+                        </Container>
                     </Container>
                 </Container>
-            </Container>
-            <Container className="project" onClick={() => {
-                    if (expandState == 3) {
-                        setExpandState(0);
-                    } else {
-                        setExpandState(3);
-                    }
-                }}>
-                <h2>Wealth-Builder</h2>
-                <Container className="project-details" style={expandState == 3 ? { height: '100%' } : { height: "0" }}>
-                    <Image className="project-image" src={wb} alt="MarketServer" fluid />
-                    <Container className="project-links">
-                        <FaGitAlt className='github' onClick={() => handleGithubClick("Wealth-Builder")}/>      
-                        <SlGlobe className='website' onClick={() => handleRedirect('https://wealth-builder-d2d82a6766d2.herokuapp.com/')}/>        
-                    </Container>
-                    <Container className="project-description">
-                        <p>
-                            "A full-stack web application designed to help you save money!" - Wealth Builder creates a safe online accounting form to keep track of a user's money coming in and money going out during the course of a month.
-                        </p>
-                    </Container>
-                </Container>
-            </Container>
-            <Container className="project" onClick={() => {
-                    if (expandState == 4) {
-                        setExpandState(0);
-                    } else {
-                        setExpandState(4);
-                    }
-                }}>
-                <h2>ModLisp</h2>
-                <Container className="project-details" style={expandState == 4 ? { height: '100%' } : { height: "0" }}>
-                    <Image className="project-image" src={ml} alt="ModLisp" fluid />
-                    <Container className="project-links">
-                        <FaGitAlt className='github' onClick={() => handleGithubClick("ModLisp")}/>      
-                    </Container>
-                    <Container className="project-description">
-                        <p>
-                            "A modfied version of the Lisp programming language with Bison/Flex compiler." - An in-depth look at compiler principles through the construction of this Lisp-hybrid!
-                        </p>
-                    </Container>
-                </Container>
-            </Container>
-            <Container className="project" onClick={() => {
-                    if (expandState == 5) {
-                        setExpandState(0);
-                    } else {
-                        setExpandState(5);
-                    }
-                }}>
-                <h2>reset-css-generator</h2>
-                <Container className="project-details" style={expandState == 5 ? { height: '100%' } : { height: "0" }}>
-                    <Image className="project-image" src={rscssg} alt="reset-css-generator" fluid />
-                    <Container className="project-links">
-                        <FaGitAlt className='github' onClick={() => handleGithubClick("reset-css-generator")}/>      
-                    </Container>
-                    <Container className="project-description">
-                        <p>
-                            A python script to automatically generate the most concise reset.css necessary for your webpage. Prior renderings of your reset.css file can be referenced in the output folder with the date and time the file was generated.
-                        </p>
-                    </Container>
-                </Container>
-            </Container>
-            <Container className="project" onClick={() => {
-                    if (expandState == 6) {
-                        setExpandState(0);
-                    } else {
-                        setExpandState(6);
-                    }
-                }}>
-                <h2>shopping-addicts-anonymous</h2>
-                <Container className="project-details" style={expandState == 6 ? { height: '100%' } : { height: "0" }}>
-                    <Image className="project-image" src={saa} alt="shopping-addicts-anonymous" fluid />
-                    <Container className="project-links">
-                        <FaGitAlt className='github' onClick={() => handleGithubClick("shopping-addicts-anonymous")}/>      
-                    </Container>
-                    <Container className="project-description">
-                        <p className='italic'>
-                            A shopping experience like you've never seen it
-                        </p>
-                    </Container>
-                </Container>
-            </Container>
-            <Container className="project" onClick={() => {
-                    if (expandState == 7) {
-                        setExpandState(0);
-                    } else {
-                        setExpandState(7);
-                    }
-                }}>
-                <h2>react-portfolio</h2>
-                <Container className="project-details" style={expandState == 7 ? { height: '100%' } : { height: "0" }}>
-                    <Image className="project-image" src={rp} alt="react-portfolio" fluid />
-                    <Container className="project-links">
-                        <FaGitAlt className='github' onClick={() => handleGithubClick("portfolio")}/>   
-                        <SlGlobe className='website' onClick={() => handleRedirect('https://ryanengland.onrender.com')}/>   
-                    </Container>
-                    <Container className="project-description">
-                        <p>
-                            Look familiar? This is the repository for this website!
-                        </p>
-                    </Container>
-                </Container>
-            </Container>
+            )})}                   
         </Container>
     );
 }

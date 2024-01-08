@@ -38,7 +38,82 @@ html {
 .pftitle {
     font-family: var(--CUTIVE-MONO);
     font-size: 78px;
-    margin: 30% 0;
+    margin: 4% 0;
+}
+
+.pfsubtitle {
+    font-family: var(--CUTIVE-MONO);
+    font-size: 36px;
+    margin: 0;
+    text-align: center;
+    background-color: #000;
+    border: #FFF 1px solid;
+    padding: 0.5em;
+}
+
+.pfdescription {
+    font-family: var(--CUTIVE-MONO);
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+    margin: 1em 0;
+}
+
+.pfdescription .container svg  {
+    scale: 1.5;
+    margin: 1em 0;
+}
+
+.fpdescription {
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.2s ease;
+}
+
+.show-fpdescription {
+    max-height: 50em;
+    transition: max-height 0.2s ease;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.home-drop {
+    rotate: -90deg;
+    transition: rotate 0.2s ease;
+}
+
+.home-info-select {
+    rotate: 0deg;
+}
+
+#student, #human, #plant {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.pfentry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+#student p, #human p, #plant p {
+    font-style: italic;
+    font-size: 18px;
 }
 
 .logo-container {
@@ -98,6 +173,10 @@ html {
     justify-content: center;
 }
 
+.contact-options {
+    margin: 0 25%;
+}
+
 .portfolio-options {
     max-width: 100%;
 }
@@ -106,6 +185,16 @@ html {
     width: 100%;
     font-size: 4rem;
     margin-bottom: 1rem;
+    text-align: center;
+}
+
+.contact-text {
+    width: 50%;
+    margin: 0 auto;
+    padding: 1em;
+    text-align: center;
+    background-color: #000;
+    border: #FFF 1px solid;
 }
 
 .email, .github, .linkedin, .youtube, .website {
@@ -266,11 +355,12 @@ html {
     justify-content: center;
     width: 75%;
     margin: 0 auto;
-    background: #000;
 }
 
 .song-list-container {
     width: 100%;
+    background: #000;
+    max-width: 700px;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -304,6 +394,7 @@ html {
     scale: 1.5;
     transition: rotate 0.2s ease;
 }
+
 
 .song-info {
     width: 100%;
@@ -372,7 +463,12 @@ html {
 
     .pftitle {
         font-size: 3rem;
-        margin: 10% 0;
+        margin: 0;
+    }
+
+    .pfsubtitle {
+        font-size: 1.5rem;
+        margin: -5% 0 -3% 0;
     }
 
     .portfolio-options {
@@ -392,6 +488,16 @@ html {
     }
 
     .song-title {
-        font-size: 10px;
+        font-size: 12px;
+    }
+
+    .streaming-info svg,
+    .song-control-button svg,
+    .song-info-dropdown svg {
+        scale: 1;
+    }
+
+    .contact-options {
+        margin: 0;
     }
 }
