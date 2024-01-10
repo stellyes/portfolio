@@ -496,6 +496,10 @@ html {
         margin-bottom: 0;
     }
 
+    .about {
+        max-width: 90%;
+    }
+
     .pftitle {
         font-size: 3rem;
         margin: 0;
@@ -508,6 +512,11 @@ html {
 
     .pfdescription {
         margin: 0;
+    }
+
+    .profile {
+        max-width: 90%;
+        margin: 1em 5%;
     }
 
     .portfolio-options {
