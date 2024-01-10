@@ -64,6 +64,7 @@ const projectData =  [
         title: 'shopping-addicts-anonymous',
         src: saa,
         github: 'shopping-addicts-anonymous',
+        website: 'https://shopping-addicts-anonymous.onrender.com/',
         description: 'A shopping experience like you\'ve never seen it',
     },
     {

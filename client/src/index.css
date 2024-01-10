@@ -72,17 +72,28 @@ html {
     overflow: hidden;
     text-align: justify;
     transition: max-height 0.2s ease;
+    background-color: #000;
 }
 
 .fpdescription p {
     font-family: var(--LORA);
     font-style: normal;
     font-size: 16px;
+    margin: 1.5em;
 }
 
 .show-fpdescription {
-    max-height: 50em;
+    max-height: 80em;
+    border: #FFF 1px solid;
     transition: max-height 0.2s ease;
+}
+
+.home-link {
+    color: white;
+}
+
+.home-link:hover {
+    text-shadow:0px 0px 5px #FFF;
 }
 
 .home {
@@ -121,7 +132,12 @@ html {
 
 .drop-title {
     font-style: italic;
-    font-size: 18px;
+    font-size: 22px;
+    transition: text-shadow 0.3s ease;
+}
+
+.drop-title:hover {
+    text-shadow: 0px 0px 10px #FFF;
 }
 
 .logo-container {
@@ -153,11 +169,22 @@ html {
     margin: 0 auto;
 }
 
+.about-text {
+    background-color: #000;
+    border: 1px solid #FFF;
+}
+
+.about-text p {
+    margin: 0.8em;
+}
+
 .profile {
     max-width: 60%;
     max-height: 15%;
-    margin: 0 20%;
+    margin: 1em 20%;
     text-align: center;
+    border-radius: 5%;
+    box-shadow: 0px 0px 25px #FFF;
 }
 
 #root,
