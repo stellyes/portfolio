@@ -11,11 +11,11 @@ const resolvers = {
                 throw new Error('Failed to fetch BlogPosts');
             }
         },
-        
+       
         // Get a BlogPost by ID
-        getBlogPostById: async (parent, { id }) => {
+        getBlogPostById: async (parent, { _id }) => {
             try {
-                const blogPost = await BlogPost.findById(id);
+                const blogPost = await BlogPost.findById(_id);
                 if (!blogPost) {
                     throw new Error('BlogPost not found');
                 }
@@ -39,11 +39,11 @@ const resolvers = {
         },
         
         // Update a BlogPost by ID
-        updateBlogPost: async (parent, { id, title, content }) => {
+        updateBlogPost: async (parent, { id, title, body }) => {
             try {
                 const updatedBlogPost = await BlogPost.findByIdAndUpdate(
-                    id, 
-                    { title, content }, 
+                    id,
+                    { title, body },
                     { new: true }
                 );
 
@@ -58,9 +58,9 @@ const resolvers = {
         },
         
         // Delete a BlogPost by ID
-        deleteBlogPost: async (parent, { id }) => {
+        deleteBlogPost: async (parent, { _id }) => {
             try {
-                const deletedBlogPost = await BlogPost.findByIdAndDelete(id);
+                const deletedBlogPost = await BlogPost.findByIdAndDelete(_id);
 
                 if (!deletedBlogPost) {
                     throw new Error('BlogPost not found');
