@@ -476,34 +476,71 @@ html {
     font-family: var(--CUTIVE-MONO);
 }
 
- .fadeIn {
-  animation: 0.5s fadeIn forwards;
+.blog-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 750px;
+    background-color: #000;
+    border: 2px solid #FFF;
+    padding: 1em;
 }
 
-.fadeOut {
-  animation: 0.5s fadeOut forwards;
+.blog-post h1, .blog-post h2 {
+    text-align: start;
+    align-self: start;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-20px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0px, 0px);
-  }
+.blog-post * {
+    text-align: justify;
+    margin: 0.5em;
 }
 
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translate(0px, 0px);
-  }
-  to {
-    transform: translate(-20px, 0);
-    opacity: 0;
-  }
+.blog-post p a img{
+    max-width: 100%;
+}
+
+.blog-post-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.blog-post-link {
+    width: 100%;
+    max-width: 700px;
+    text-decoration: none;
+    color: #FFF;
+    background-color: #000;
+    border: 1px solid #FFF;
+    margin: 0.5em auto;
+    transition: box-shadow 0.3s ease;
+}
+
+.blog-post-link:hover {
+    box-shadow: 0px 0px 25px #FFF;
+}
+
+.blog-post-preview {
+    margin: 1em;
+}
+
+.blog-post-preview div {
+    display: flex;
+    flex-direction: row;
+    align-items: first baseline;
+    justify-content: space-between;
+}
+
+.blog-post-preview p {
+    text-align: justify;
+    margin-top: 0;
 }
 
 @media screen and (max-width: 1007px) {

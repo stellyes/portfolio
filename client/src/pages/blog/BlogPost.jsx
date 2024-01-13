@@ -1,22 +1,13 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-
-const blogPosts = [
-    {
-        title: "Blog Post 1",
-        body: `# That's One Way: Creating a blog with React.js and MongoDB 
-
-*How do the two technologies connect? How do you render a fully formatted, headed, spaced blog post if you're storing it as plain text?*
-
-**Here's my solution to this problem.**`,
-        date: "2021-01-01"
-    }
-]
+import { useLocation } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Markdown from 'react-markdown'
 
 const Blog = () => {
+    const location = useLocation();
     return (
-        <Container>
-            <div>Coming soon!</div>
+        <Container className="blog-post">
+            <Markdown>{location.state.post.body}</Markdown>
         </Container>
     );
 };

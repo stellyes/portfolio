@@ -6,6 +6,7 @@ export const GET_BLOG_POST = gql`
             _id
             title
             body
+            createdAt
         }
     }
 `;
@@ -16,6 +17,7 @@ export const ALL_BLOG_POSTS = gql`
             _id
             title
             body
+            createdAt
         }
     }   
 `;

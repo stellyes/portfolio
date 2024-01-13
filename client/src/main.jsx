@@ -6,12 +6,15 @@ import App from './App.jsx';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import About from './pages/About';
+import Admin from './pages/Admin';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 
 import Art from './pages/portfolio/Art';
 import Code from './pages/portfolio/Code';
 import Music from './pages/portfolio/Music';
+
+import BlogPost from './pages/blog/BlogPost'
 
 var granimInstance = new Granim({
     element: '#dynamic-background',
@@ -64,6 +67,10 @@ const router = createBrowserRouter([
         element: <Blog />,
       },
       {
+        path: "/blog/:id",
+        element: <BlogPost />,
+      },
+      {
         path: "/about",
         element: <About />,
       },
@@ -87,6 +94,10 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "/admin",
+        element: <Admin />
+      }
     ]
   }
 ]);
