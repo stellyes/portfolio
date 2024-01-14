@@ -4,46 +4,52 @@ import Form from 'react-bootstrap/Form';
 import Button from  'react-bootstrap/Button'
 
 import { useMutation } from '@apollo/client';
-import { LOGIN } from '../utils/mutations';
+import { LOGIN, VERIFY } from '../utils/mutations'; // Define your mutations file
 
-import Auth from '../utils/auth';
 
 const Admin = () => {
     const [isAdmin, setIsAdmin] = useState(false);
-    const [login, { error: loginError, data: loginData }] = useMutation(LOGIN);
 
-    useEffect(() => {
-        console.log("login data:", loginData);
-        if (loginData.login.token) {
-            Auth.login(loginData.login.token);
+    const [login] = useMutation(LOGIN);
+    const [verify] = useMutation(VERIFY);
+
+    // Check if admin is already logged in
+    useEffect(() => {   
+        const attemptVerify = async () => {
+            try {
+                const { data } = await verify();
+                if (data.verify) {
+                    setIsAdmin(true);
+                    return;
+                }
+            } catch (err) {
+                console.error(err);
+            }
         }
-    }, [loginData]);
+        attemptVerify();
+    }, []);
+
+    // Redirect if admin is  logged in
+    useEffect(() => {
+        if (isAdmin) {
+            window.location.href = '/';
+        }
+    }, [isAdmin])
 
     const checkAdminPrivileges = async (e) => {
         e.preventDefault();
 
         try {
             const formData = new FormData(e.target);
-            const entries = Object.fromEntries(formData.entries()).username;
-            const { username, password } = entries;
+            const admin = Object.fromEntries(formData.entries()).admin;
 
-            // Getting { token, user } from server-side
-            await login({
-                variables: {
-                    username,
-                    password,
-                },
-            });
-
-            
-            setIsAdmin(true);
+            if (login({ variables: { admin } })) {
+                setIsAdmin(true);
+                return;
+            }
         } catch (err) {
-            console.error(loginError);
+            console.error(err);
         }
-    }
-
-    const handleLogin = () => {
-        window.location.href = "/";
     }
 
     return (

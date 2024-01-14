@@ -12,7 +12,7 @@ export const ADD_BLOG_POST = gql`
 
 export const UPDATE_BLOG_POST = gql`
     mutation updateBlogPost($blogPostId: ID!, $title: String, $body: String) {
-        updateBlogPost(blogPostId: $blogPostId) {
+        updateBlogPost(blogPostId: $blogPostId, title: $title, body: $body) {
             _id
             title
             body
@@ -30,26 +30,14 @@ export const DELETE_BLOG_POST = gql`
     }
 `
 
-export const REGISTER = gql`
-    mutation Register($username: String!, $password: String!) {
-        register(username: $username, password: $password) {
-            token
-            user {
-                id
-                username
-            }
-        }
-    }
-`;
-
 export const LOGIN = gql`
-    mutation Login($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
-            token
-            user {
-                id
-                username
-            }
-        }
+    mutation login($input: String!) {
+        login(input: $input)
     }
-`;
+`
+
+export const VERIFY = gql`
+    mutation verify {
+        verify
+    }
+`

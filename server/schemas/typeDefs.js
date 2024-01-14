@@ -1,6 +1,4 @@
-const { gql } = require('apollo-server-express');
-
-const typeDefs = gql`
+const typeDefs = `
     # Custom scalar type for representing dates
     scalar Date 
 
@@ -11,25 +9,14 @@ const typeDefs = gql`
         createdAt: Date!
     }
 
-    type User {
-        _id: ID!
-        username: String!
-        password: String!
-    }
-
-    type AuthPayload {
-        token: String!
-        user: User
-    }
-
     type Query {
         getAllBlogPosts: [BlogPost]
         getBlogPostById(id: ID!): BlogPost
     }
 
     type Mutation {
-        register(username: String!, password: String!): AuthPayload
-        login(username: String!, password: String!): AuthPayload
+        login(input: String!): Boolean
+        verify: Boolean
         addBlogPost(title: String!, body: String!): BlogPost
         updateBlogPost(id: ID!, title: String!, body: String!): BlogPost
         deleteBlogPost(id: ID!): BlogPost

@@ -34,7 +34,7 @@ const Blog = () => {
         <Container className="blog-post-item">
             {error && <h1 className="blog-load-error">Error</h1>}
             {loading && <h1 className="blog-loading">Loading...</h1>}
-            {!loading && posts ? 
+            {posts ? 
                 posts.map((post) => (
                     <Link 
                         to={`/blog/${post._id}`} 

@@ -1,24 +1,19 @@
-const jwt = require('jsonwebtoken');
+const login = (input) => {
+    const adminKey = process.env.REACT_APP_ADMIN;
+    
+    // If admin match, set item to local storage
+    if (input === adminKey) {
+        localStorage.setItem(process.env.REACT_APP_KEY1, process.env.REACT_APP_KEY2);
+        return true;
+    } 
 
-const verifyJWT = (req, res, next) => {
-    try {
-        const token = req.headers.authorization.split(' ')[1]; // Bearer <token>
-        if (!token) {
-            return res.status(401).json({ message: 'No token, authorization denied' });
-        }
-
-        // Verify token
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded; 
-        next();
-    } catch (error) {
-        res.status(401).json({ message: 'Token is not valid' });
-    }
+    return false;
 };
 
-const signJWT = ({ _id, email, username }) => {
-    const payload = { _id, email, username };
-    return jwt.sign({ data: payload }, process.env.JWT_SECRET, { expiresIn: '2h' });
-};
+const verify = () => {
+    const check = localStorage.getItem(process.env.REACT_APP_KEY1); // Get item from local storage
+    if (check === process.env.REACT_APP_KEY2) return true;          // Compare item to key
+    return false;   // In any instance where the key is not found / key is invalid, return false
+}
 
-module.exports = { verifyJWT, signJWT };
+module.exports = { login, verify };
