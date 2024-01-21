@@ -4,70 +4,59 @@ import Form from 'react-bootstrap/Form';
 import Button from  'react-bootstrap/Button'
 
 import { useMutation } from '@apollo/client';
-import { LOGIN, VERIFY } from '../utils/mutations'; // Define your mutations file
-
+import { Link } from 'react-router-dom';
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const Admin = () => {
     const [isAdmin, setIsAdmin] = useState(false);
+    const [formState, setFormState] = useState({ username: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN);
 
-    const [login] = useMutation(LOGIN);
-    const [verify] = useMutation(VERIFY);
-
-    // Check if admin is already logged in
-    useEffect(() => {   
-        const attemptVerify = async () => {
-            try {
-                const { data } = await verify();
-                if (data.verify) {
-                    setIsAdmin(true);
-                    return;
-                }
-            } catch (err) {
-                console.error(err);
-            }
-        }
-        attemptVerify();
-    }, []);
-
-    // Redirect if admin is  logged in
-    useEffect(() => {
-        if (isAdmin) {
-            window.location.href = '/';
-        }
-    }, [isAdmin])
-
-    const checkAdminPrivileges = async (e) => {
-        e.preventDefault();
-
+    const checkAdminPrivileges = async (event) => {
+        event.preventDefault();
         try {
-            const formData = new FormData(e.target);
-            const admin = Object.fromEntries(formData.entries()).admin;
+            const response = await login({
+                variables: { username: formState.username, password: formState.password },
+            });
+            const token = response.data.login.token;
 
-            if (login({ variables: { admin } })) {
-                setIsAdmin(true);
-                return;
-            }
-        } catch (err) {
-            console.error(err);
+            Auth.login(token);
+        } catch (e) {
+            console.log(e);
         }
-    }
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+        ...formState,
+        [name]: value,
+        });
+    };
 
     return (
         <Container>
-            {isAdmin ? 
-                handleLogin :
-                <Form 
-                    onSubmit={checkAdminPrivileges}
-                >
-                    <Form.Control 
-                        type="text" 
-                        placeholder="admin" 
-                        aria-label="admin" 
-                        name="admin" 
-                    />
-                    <Button type="submit">✓</Button>
-                </Form>
-            }
+            <Form 
+                className="admin-form"
+                onSubmit={checkAdminPrivileges}
+            >
+                <Form.Control 
+                    type="text" 
+                    placeholder="username" 
+                    aria-label="username" 
+                    name="username" 
+                    onChange={handleChange}
+                />
+                <Form.Control 
+                    type="password" 
+                    placeholder="password" 
+                    aria-label="password" 
+                    name="password" 
+                    onChange={handleChange}
+                />
+                <Button type="submit">✓</Button>
+            </Form>
         </Container>
     );
 };

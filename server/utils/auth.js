@@ -1,19 +1,38 @@
-const login = (input) => {
-    const adminKey = process.env.REACT_APP_ADMIN;
-    
-    // If admin match, set item to local storage
-    if (input === adminKey) {
-        localStorage.setItem(process.env.REACT_APP_KEY1, process.env.REACT_APP_KEY2);
-        return true;
-    } 
+const { GraphQLError } = require('graphql');
+const jwt = require('jsonwebtoken');
 
-    return false;
+const secret = 'mysecretssshhhhhhh';
+const expiration = '2h';
+
+module.exports = {
+  AuthenticationError: new GraphQLError('Could not authenticate user.', {
+    extensions: {
+      code: 'UNAUTHENTICATED',
+    },
+  }),
+  authMiddleware: function ({ req }) {
+    let token = req.body.token || req.query.token || req.headers.authorization;
+
+    if (req.headers.authorization) {
+      token = token.split(' ').pop().trim();
+    }
+
+    if (!token) {
+      return req;
+    }
+
+    try {
+      const { data } = jwt.verify(token, secret, { maxAge: expiration });
+      req.username = data;
+    } catch {
+      console.log('Invalid token');
+    }
+
+    return req;
+  },
+  signToken: function ({ username, password, _id }) {
+    const payload = { username, password, _id };
+
+    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+  },
 };
-
-const verify = () => {
-    const check = localStorage.getItem(process.env.REACT_APP_KEY1); // Get item from local storage
-    if (check === process.env.REACT_APP_KEY2) return true;          // Compare item to key
-    return false;   // In any instance where the key is not found / key is invalid, return false
-}
-
-module.exports = { login, verify };

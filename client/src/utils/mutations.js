@@ -31,13 +31,20 @@ export const DELETE_BLOG_POST = gql`
 `
 
 export const LOGIN = gql`
-    mutation login($input: String!) {
-        login(input: $input)
+  mutation login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      token
     }
-`
+  }
+`;
 
-export const VERIFY = gql`
-    mutation verify {
-        verify
+export const ADD_ADMIN = gql`
+  mutation addAdmin($username: String!, $password: String!) {
+    addAdmin(username: $username, password: $password) {
+      token
+      user {
+        _id
+      }
     }
-`
+  }
+`;

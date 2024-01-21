@@ -14,7 +14,9 @@ import Art from './pages/portfolio/Art';
 import Code from './pages/portfolio/Code';
 import Music from './pages/portfolio/Music';
 
-import BlogPost from './pages/blog/BlogPost'
+import BlogPost from './pages/blog/BlogPost';
+
+import A from './pages/A';
 
 var granimInstance = new Granim({
     element: '#dynamic-background',
@@ -97,6 +99,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />
+      },
+      {
+        path: "/0141143",
+        element: <A />
       }
     ]
   }
