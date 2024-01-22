@@ -28,31 +28,6 @@ const resolvers = {
     },
     
     Mutation: {
-        // Registe admin
-        addAdmin: async (parent, args) => {
-            const admin = await Admin.create(args);
-            const token = signToken(admin);
-
-            return { token, admin };
-        },
-        // Login admin
-        login: async (parent, { username, password }) => {
-            const admin = await Admin.findOne({ username });
-
-            if (!admin) {
-                throw AuthenticationError;
-            }
-
-            const correctPw = await admin.isCorrectPassword(password);
-
-            if (!correctPw) {
-                throw AuthenticationError;
-            }
-
-            const token = signToken(admin);
-
-            return { token, admin };
-        },
         // Add a new BlogPost
         addBlogPost: async (parent, { title, body }) => {
             try {

@@ -6,7 +6,6 @@ import App from './App.jsx';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import About from './pages/About';
-import Admin from './pages/Admin';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
 
@@ -16,42 +15,40 @@ import Music from './pages/portfolio/Music';
 
 import BlogPost from './pages/blog/BlogPost';
 
-import A from './pages/A';
-
 var granimInstance = new Granim({
-    element: '#dynamic-background',
-    direction: 'diagonal',
-    isPausedWhenNotInView: true,
-    states : {
-        "default-state": {
-            gradients: [
-                [
-                  { color: '#000', pos: .2 },
-                  { color: '#666', pos: .8 },
-                  { color: '#BBB', pos: 1 }
-                ], [
-                  { color: '#AAA', pos: 0 },
-                  { color: '#777', pos: .2 },
-                  { color: '#333', pos: .75 }
-                ],
-                [
-                  { color: '#222', pos: .1 },
-                  { color: '#777', pos: .5 },
-                  { color: '#555', pos: .9 }
-                ],
-                [
-                  { color: '#111', pos: .3 },
-                  { color: '#444', pos: .6 },
-                  { color: '#888', pos: .95 }
-                ],
-                [
-                  { color: '#000', pos: .4 },
-                  { color: '#444', pos: .7 },
-                  { color: '#999', pos: .8 }
-                ]
-            ]
-        }
+  element: '#dynamic-background',
+  direction: 'diagonal',
+  isPausedWhenNotInView: true,
+  states: {
+    "default-state": {
+      gradients: [
+        [
+          { color: '#000', pos: .2 },
+          { color: '#666', pos: .8 },
+          { color: '#BBB', pos: 1 }
+        ], [
+          { color: '#AAA', pos: 0 },
+          { color: '#777', pos: .2 },
+          { color: '#333', pos: .75 }
+        ],
+        [
+          { color: '#222', pos: .1 },
+          { color: '#777', pos: .5 },
+          { color: '#555', pos: .9 }
+        ],
+        [
+          { color: '#111', pos: .3 },
+          { color: '#444', pos: .6 },
+          { color: '#888', pos: .95 }
+        ],
+        [
+          { color: '#000', pos: .4 },
+          { color: '#444', pos: .7 },
+          { color: '#999', pos: .8 }
+        ]
+      ]
     }
+  }
 });
 
 const router = createBrowserRouter([
@@ -61,7 +58,7 @@ const router = createBrowserRouter([
     error: <Home />,
     children: [
       {
-        index: true, 
+        index: true,
         element: <Home />
       },
       {
@@ -96,14 +93,6 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      {
-        path: "/admin",
-        element: <Admin />
-      },
-      {
-        path: "/0141143",
-        element: <A />
-      }
     ]
   }
 ]);

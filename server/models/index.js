@@ -1,4 +1,3 @@
-const BlogPost = require('./BlogPost');
-const Admin = require('./Admin')
+const BlogPost = require("./BlogPost");
 
-module.exports = { Admin, BlogPost };
+module.exports = { BlogPost };
