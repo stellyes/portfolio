@@ -527,6 +527,7 @@ html {
 }
 
 .blog-post p img,
+.blog-post p a,
 .blog-post p a img {
   max-width: 95%;
   margin: 0 2.5%;
