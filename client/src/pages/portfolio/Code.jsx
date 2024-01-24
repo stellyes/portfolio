@@ -19,8 +19,9 @@ import ca from '../../assets/images/projects/ca.png'
 import rr from '../../assets/images/projects/rr.png'
 import svg from '../../assets/images/projects/svg.png'
 import wh from '../../assets/images/projects/wh.png'
+import gwr from '../../assets/images/projects/gwr.png'
 
-const projectData =  [
+const projectData = [
     {
         id: 1,
         title: 'J.A.T.E Quick Journal',
@@ -113,7 +114,14 @@ const projectData =  [
         github: 'weather-hub',
         website: 'https://stellyes.github.io/weather-hub/',
         description: 'WeatherHub provides current weather conditions for any valid city provided by the OpenWeather API. Once a city is located, the current conditions and five day forecast average are presented to the user.'
-    }
+    },
+    {
+        id: 13,
+        title: 'go-web-routes',
+        src: gwr,
+        github: 'go-web-routes',
+        description: 'A demo on how to set HTTP routes with Go\'s build in HTTP handler.'
+    },
 ];
 
 // Function to shuffle an array using the Fisher-Yates algorithm
@@ -129,11 +137,11 @@ shuffleArray(projectData);
 const Resume = () => {
     return (
         <Container className='resume-container'>
-            <a 
+            <a
                 className='resume-link'
                 href={resume}
-                download="ryanengland_resume.pdf" 
-                target="_blank" 
+                download="ryanengland_resume.pdf"
+                target="_blank"
                 rel="noopener noreferrer">
                 <Container className="resume-button">View full resume</Container>
             </a>
@@ -155,7 +163,7 @@ const Projects = () => {
     return (
         <Container className="code-container">
             {projectData.map((project, index) => {
-                return(
+                return (
                     <Container className="project" key={index} onClick={() => {
                         if (expandState == project.id) {
                             setExpandState(0);
@@ -163,22 +171,23 @@ const Projects = () => {
                             setExpandState(project.id);
                         }
                     }}>
-                    <h2>{project.title}</h2>
-                    <Container className="project-details" style={expandState == project.id ? { height: '100%' } : { height: "0" }}>
-                        <Image className="project-image" src={project.src} alt={project.title} fluid />
-                        <Container className="project-links">
-                            {project.github && <FaGitAlt className='github' onClick={() => handleGithubClick(project.github)}/>}
-                            {project.website && <SlGlobe className='website' onClick={() => handleRedirect(project.website)}/>}
-                            {project.youtube && <FaYoutube className='youtube' onClick={() => handleRedirect(project.youtube)}/>}
-                        </Container>
-                        <Container className="project-description">
-                            <p>
-                                {project.description}
-                            </p>
+                        <h2>{project.title}</h2>
+                        <Container className="project-details" style={expandState == project.id ? { height: '100%' } : { height: "0" }}>
+                            <Image className="project-image" src={project.src} alt={project.title} fluid />
+                            <Container className="project-links">
+                                {project.github && <FaGitAlt className='github' onClick={() => handleGithubClick(project.github)} />}
+                                {project.website && <SlGlobe className='website' onClick={() => handleRedirect(project.website)} />}
+                                {project.youtube && <FaYoutube className='youtube' onClick={() => handleRedirect(project.youtube)} />}
+                            </Container>
+                            <Container className="project-description">
+                                <p>
+                                    {project.description}
+                                </p>
+                            </Container>
                         </Container>
                     </Container>
-                </Container>
-            )})}                   
+                )
+            })}
         </Container>
     );
 }
