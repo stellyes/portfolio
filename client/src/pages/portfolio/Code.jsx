@@ -20,6 +20,7 @@ import rr from '../../assets/images/projects/rr.png'
 import svg from '../../assets/images/projects/svg.png'
 import wh from '../../assets/images/projects/wh.png'
 import gwr from '../../assets/images/projects/gwr.png'
+import eadc from '../../assets/images/projects/eadc.png'
 
 const projectData = [
     {
@@ -122,6 +123,14 @@ const projectData = [
         github: 'go-web-routes',
         description: 'A demo on how to set HTTP routes with Go\'s build in HTTP handler.'
     },
+    {
+        id: 14,
+        title: 'elisha-aflalo.com',
+        src: eadc,
+        website: 'https://elisha-aflalo.com',
+        github: 'eaflalo',
+        description: 'A personal portfolio website for Elisha Aflalo, a talened, multi-disciplinary artist.'
+    }
 ];
 
 // Function to shuffle an array using the Fisher-Yates algorithm
