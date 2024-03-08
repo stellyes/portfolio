@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 
-import { LiaWindowCloseSolid } from "react-icons/lia";
-
 import cyguttrbmp from '../../assets/images/cygutt/cyguttrbmp.jpg';
 import cyguttbw from '../../assets/images/cygutt/cyguttbw.jpg';
 import cyguttgbmp from '../../assets/images/cygutt/cyguttgbmp.jpg';
@@ -165,21 +163,21 @@ const Art = () => {
 
     return (
         <Container>
-            <Container className="gallery-intro"> 
+            <Container className="gallery-intro">
                 Enjoy some of my recent pieces! At the moment, the images are static, but I'll be updating the site to have more interactive features soon.
             </Container>
             <Container className="gallery">
                 {art.map((image, index) => {
-                    return(
-                        <Container 
-                            className="gallery-item" 
-                            key={index} 
+                    return (
+                        <Container
+                            className="gallery-item"
+                            key={index}
                         >
-                                <Image 
-                                    src={image.src} 
-                                    alt={image.title} 
-                                    style={{ width: "100%" }}
-                                />
+                            <Image
+                                src={image.src}
+                                alt={image.title}
+                                style={{ width: "100%" }}
+                            />
                         </Container>
                     )
                 })}
